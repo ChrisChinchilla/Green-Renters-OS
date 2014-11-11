@@ -1,0 +1,4 @@
+name = Creative Commons Block
+description = Provides a block to display CC block for GR site.
+core = 7.x
+dependencies[] = block
