@@ -340,6 +340,46 @@ function green_renters_workshops_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-workshop-field_temp_image_url'
+  $field_instances['node-workshop-field_temp_image_url'] = array(
+    'bundle' => 'workshop',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_temp_image_url',
+    'label' => 'Temp Image URL',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 40,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Aims');
@@ -349,6 +389,7 @@ function green_renters_workshops_field_default_field_instances() {
   t('Private Files');
   t('Public Files');
   t('Tags');
+  t('Temp Image URL');
 
   return $field_instances;
 }
