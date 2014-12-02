@@ -17,6 +17,13 @@ function green_renters_workshops_ctools_plugin_api($module = NULL, $api = NULL) 
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function green_renters_workshops_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function green_renters_workshops_node_info() {
