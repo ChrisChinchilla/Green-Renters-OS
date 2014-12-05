@@ -43,8 +43,8 @@ function base_content_types_and_dependencies_wysiwyg_default_profiles() {
       'css_path' => '',
       'stylesSet' => '',
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
-      'advanced__active_tab' => 'edit-basic',
-      'forcePasteAsPlainText' => 0,
+      'advanced__active_tab' => 'edit-output',
+      'forcePasteAsPlainText' => 1,
     ),
     'rdf_mapping' => array(),
   );
@@ -85,8 +85,8 @@ function base_content_types_and_dependencies_wysiwyg_default_profiles() {
       'css_path' => '',
       'stylesSet' => '',
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
-      'advanced__active_tab' => 'edit-basic',
-      'forcePasteAsPlainText' => 0,
+      'advanced__active_tab' => 'edit-paste',
+      'forcePasteAsPlainText' => 1,
     ),
     'rdf_mapping' => array(),
   );

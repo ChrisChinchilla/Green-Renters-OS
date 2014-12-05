@@ -69,35 +69,31 @@ function green_renters_workshops_field_default_field_bases() {
   // Exported field_base: 'field_audience'
   $field_bases['field_audience'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_audience',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
-      'tid' => array(
+      'format' => array(
         'columns' => array(
-          'tid' => 'tid',
+          'format' => 'format',
         ),
-        'table' => 'taxonomy_term_data',
+        'table' => 'filter_format',
       ),
     ),
     'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
+      'format' => array(
+        0 => 'format',
       ),
     ),
     'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'audience',
-          'parent' => 0,
-        ),
-      ),
-    ),
+    'module' => 'text',
+    'settings' => array(),
     'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_image'
@@ -107,6 +103,9 @@ function green_renters_workshops_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_image',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'fid' => array(
         'columns' => array(
@@ -124,7 +123,7 @@ function green_renters_workshops_field_default_field_bases() {
     'module' => 'image',
     'settings' => array(
       'default_image' => 0,
-      'uri_scheme' => 'public',
+      'uri_scheme' => 'flickr',
     ),
     'translatable' => 0,
     'type' => 'image',
@@ -191,6 +190,36 @@ function green_renters_workshops_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'link_field',
+  );
+
+  // Exported field_base: 'field_reflections'
+  $field_bases['field_reflections'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_reflections',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_tags'

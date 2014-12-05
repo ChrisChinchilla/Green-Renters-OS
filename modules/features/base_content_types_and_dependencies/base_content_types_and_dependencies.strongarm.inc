@@ -73,6 +73,20 @@ function base_content_types_and_dependencies_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'media_flickr__api_key';
+  $strongarm->value = 'b1831b8b801913b7e3d96915a6622b27';
+  $export['media_flickr__api_key'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_flickr__api_secret';
+  $strongarm->value = 'd9f0325f059dfc5b';
+  $export['media_flickr__api_secret'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_page';
   $strongarm->value = array(
     0 => 'status',

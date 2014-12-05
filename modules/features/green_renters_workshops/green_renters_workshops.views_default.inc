@@ -108,7 +108,9 @@ function green_renters_workshops_views_default_views() {
   $handler->display->display_options['fields']['field_audience']['id'] = 'field_audience';
   $handler->display->display_options['fields']['field_audience']['table'] = 'field_data_field_audience';
   $handler->display->display_options['fields']['field_audience']['field'] = 'field_audience';
+  $handler->display->display_options['fields']['field_audience']['click_sort_column'] = 'tid';
   $handler->display->display_options['fields']['field_audience']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_audience']['group_column'] = 'tid';
   $handler->display->display_options['fields']['field_audience']['delta_offset'] = '0';
   /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';

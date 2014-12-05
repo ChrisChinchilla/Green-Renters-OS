@@ -98,20 +98,16 @@ function green_renters_workshops_field_default_field_instances() {
   // Exported field_instance: 'node-workshop-field_audience'
   $field_instances['node-workshop-field_audience'] = array(
     'bundle' => 'workshop',
-    'default_value' => array(
-      0 => array(
-        'tid' => 1,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
-        'module' => 'taxonomy',
+        'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 2,
+        'type' => 'text_default',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -125,14 +121,17 @@ function green_renters_workshops_field_default_field_instances() {
     'label' => 'Audience',
     'required' => 0,
     'settings' => array(
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 35,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 42,
     ),
   );
 
@@ -144,12 +143,11 @@ function green_renters_workshops_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'file_entity',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => 'large',
+          'file_view_mode' => 'default',
         ),
-        'type' => 'image',
+        'type' => 'file_rendered',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -176,12 +174,21 @@ function green_renters_workshops_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'image',
+      'module' => 'media',
       'settings' => array(
-        'preview_image_style' => 'medium',
+        'allowed_schemes' => array(
+          'flickr' => 'flickr',
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'default' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'image_image',
+      'type' => 'media_generic',
       'weight' => 39,
     ),
   );
@@ -300,6 +307,46 @@ function green_renters_workshops_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-workshop-field_reflections'
+  $field_instances['node-workshop-field_reflections'] = array(
+    'bundle' => 'workshop',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_reflections',
+    'label' => 'Reflections',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 41,
+    ),
+  );
+
   // Exported field_instance: 'node-workshop-field_tags'
   $field_instances['node-workshop-field_tags'] = array(
     'bundle' => 'workshop',
@@ -387,6 +434,7 @@ function green_renters_workshops_field_default_field_instances() {
   t('Image');
   t('Private Files');
   t('Public Files');
+  t('Reflections');
   t('Tags');
   t('Temp Image URL');
 
