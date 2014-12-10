@@ -67,7 +67,7 @@ function base_content_types_and_dependencies_file_default_displays() {
   $file_display->status = TRUE;
   $file_display->settings = array(
     'image_style' => 'medium',
-    'link_to_flickr' => 0,
+    'link_to_flickr' => 1,
   );
   $export['image__default__media_flickr_image'] = $file_display;
 

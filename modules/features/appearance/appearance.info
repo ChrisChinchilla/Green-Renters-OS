@@ -1,0 +1,13 @@
+name = Appearance
+core = 7.x
+package = Green Renters
+version = 7.x-1.0
+project = appearance
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = color_greenrenters7_files
+features[variable][] = color_greenrenters7_logo
+features[variable][] = color_greenrenters7_palette
+features[variable][] = color_greenrenters7_stylesheets

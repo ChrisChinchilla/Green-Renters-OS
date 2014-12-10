@@ -75,6 +75,13 @@ function green_renters_workshops_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -82,20 +89,12 @@ function green_renters_workshops_views_default_views() {
   $handler->display->display_options['fields']['field_image']['label'] = '';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['type'] = 'file_rendered';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'medium',
-    'image_link' => 'content',
+    'file_view_mode' => 'default',
   );
   $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Aims */
   $handler->display->display_options['fields']['field_aims']['id'] = 'field_aims';
   $handler->display->display_options['fields']['field_aims']['table'] = 'field_data_field_aims';
@@ -104,18 +103,13 @@ function green_renters_workshops_views_default_views() {
   $handler->display->display_options['fields']['field_aims']['settings'] = array(
     'trim_length' => '300',
   );
-  /* Field: Content: Audience */
-  $handler->display->display_options['fields']['field_audience']['id'] = 'field_audience';
-  $handler->display->display_options['fields']['field_audience']['table'] = 'field_data_field_audience';
-  $handler->display->display_options['fields']['field_audience']['field'] = 'field_audience';
-  $handler->display->display_options['fields']['field_audience']['click_sort_column'] = 'tid';
-  $handler->display->display_options['fields']['field_audience']['type'] = 'taxonomy_term_reference_plain';
-  $handler->display->display_options['fields']['field_audience']['group_column'] = 'tid';
-  $handler->display->display_options['fields']['field_audience']['delta_offset'] = '0';
   /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'Read More';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -136,44 +130,6 @@ function green_renters_workshops_views_default_views() {
     'workshop' => 'workshop',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Global: Combine fields filter */
-  $handler->display->display_options['filters']['combine']['id'] = 'combine';
-  $handler->display->display_options['filters']['combine']['table'] = 'views';
-  $handler->display->display_options['filters']['combine']['field'] = 'combine';
-  $handler->display->display_options['filters']['combine']['operator'] = 'contains';
-  $handler->display->display_options['filters']['combine']['group'] = 1;
-  $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Search';
-  $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'search';
-  $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['combine']['group_info']['label'] = 'Combine fields filter';
-  $handler->display->display_options['filters']['combine']['group_info']['identifier'] = 'combine';
-  $handler->display->display_options['filters']['combine']['group_info']['remember'] = FALSE;
-  $handler->display->display_options['filters']['combine']['group_info']['group_items'] = array(
-    1 => array(),
-    2 => array(),
-    3 => array(),
-  );
-  $handler->display->display_options['filters']['combine']['fields'] = array(
-    'title' => 'title',
-    'body' => 'body',
-  );
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'workshops';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Workshops';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
@@ -185,6 +141,9 @@ function green_renters_workshops_views_default_views() {
     'default' => 'default',
     'page' => 'page',
   );
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
   $export['workshop_listing'] = $view;
 
   return $export;

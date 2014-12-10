@@ -22,7 +22,7 @@ function base_content_types_and_dependencies_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -58,52 +58,57 @@ function base_content_types_and_dependencies_field_default_field_instances() {
   $field_instances['node-article-field_image'] = array(
     'bundle' => 'article',
     'deleted' => 0,
-    'description' => 'Upload an image to go with this article.',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'file_entity',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => 'large',
+          'file_view_mode' => 'default',
         ),
-        'type' => 'image',
-        'weight' => -1,
+        'type' => 'file_rendered',
+        'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => 'content',
-          'image_style' => 'medium',
-        ),
-        'type' => 'image',
-        'weight' => -1,
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'node',
     'field_name' => 'field_image',
     'label' => 'Image',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'alt_field' => TRUE,
+      'alt_field' => 0,
       'default_image' => 0,
-      'file_directory' => 'field/image',
+      'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
-      'title_field' => '',
+      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'module' => 'image',
+      'active' => 1,
+      'module' => 'media',
       'settings' => array(
-        'preview_image_style' => 'thumbnail',
+        'allowed_schemes' => array(
+          'flickr' => 'flickr',
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'default' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'image_image',
-      'weight' => -1,
+      'type' => 'media_generic',
+      'weight' => 34,
     ),
   );
 
@@ -116,10 +121,9 @@ function base_content_types_and_dependencies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
+        'type' => 'hidden',
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -156,9 +160,8 @@ function base_content_types_and_dependencies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 11,
       ),
       'teaser' => array(
@@ -278,7 +281,6 @@ function base_content_types_and_dependencies_field_default_field_instances() {
   t('Image');
   t('Tags');
   t('Temp Image URL');
-  t('Upload an image to go with this article.');
 
   return $field_instances;
 }
