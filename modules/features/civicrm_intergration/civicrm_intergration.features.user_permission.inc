@@ -24,6 +24,7 @@ function civicrm_intergration_user_default_permissions() {
     'name' => 'access CiviCRM',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
     ),
     'module' => 'civicrm',
   );
@@ -51,6 +52,7 @@ function civicrm_intergration_user_default_permissions() {
     'name' => 'access CiviMail subscribe/unsubscribe pages',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
     ),
     'module' => 'civicrm',
   );
@@ -357,6 +359,7 @@ function civicrm_intergration_user_default_permissions() {
     'name' => 'make online contributions',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
     ),
     'module' => 'civicrm',
   );
@@ -402,6 +405,7 @@ function civicrm_intergration_user_default_permissions() {
     'name' => 'profile listings and forms',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
     ),
     'module' => 'civicrm',
   );
