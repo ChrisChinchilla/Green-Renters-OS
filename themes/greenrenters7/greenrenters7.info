@@ -2,7 +2,7 @@
 name = Green Renters 7
 description = Very basic theme for now for D7 site.
 core = 7.x
-base theme = bootstrap
+base theme = bartik
 
 stylesheets[all][] = css/style.css
 
