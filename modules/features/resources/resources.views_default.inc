@@ -1,28 +1,28 @@
 <?php
 /**
  * @file
- * green_renters_workshops.views_default.inc
+ * resources.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function green_renters_workshops_views_default_views() {
+function resources_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'workshop_listing';
+  $view->name = 'resource_listing';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Workshop Listing';
+  $view->human_name = 'Resource Listing';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Workshops';
+  $handler->display->display_options['title'] = 'Resources';
   $handler->display->display_options['css_class'] = 'workshopsview';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
@@ -34,7 +34,10 @@ function green_renters_workshops_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Clear';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '25';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_image' => 'field_image',
@@ -75,14 +78,6 @@ function green_renters_workshops_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -90,27 +85,37 @@ function green_renters_workshops_views_default_views() {
   $handler->display->display_options['fields']['field_image']['label'] = '';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['type'] = 'file_rendered';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'file_view_mode' => 'default',
+    'image_style' => 'medium',
+    'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  /* Field: Content: Aims */
-  $handler->display->display_options['fields']['field_aims']['id'] = 'field_aims';
-  $handler->display->display_options['fields']['field_aims']['table'] = 'field_data_field_aims';
-  $handler->display->display_options['fields']['field_aims']['field'] = 'field_aims';
-  $handler->display->display_options['fields']['field_aims']['type'] = 'text_trimmed';
-  $handler->display->display_options['fields']['field_aims']['settings'] = array(
-    'trim_length' => '300',
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '500',
   );
-  /* Field: Content: Link */
-  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['label'] = '';
-  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'Read More';
+  /* Field: Content: All taxonomy terms */
+  $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['label'] = 'Tags';
+  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
+    'tags' => 0,
+  );
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -128,9 +133,48 @@ function green_renters_workshops_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'workshop' => 'workshop',
+    'resource' => 'resource',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Global: Combine fields filter */
+  $handler->display->display_options['filters']['combine']['id'] = 'combine';
+  $handler->display->display_options['filters']['combine']['table'] = 'views';
+  $handler->display->display_options['filters']['combine']['field'] = 'combine';
+  $handler->display->display_options['filters']['combine']['operator'] = 'contains';
+  $handler->display->display_options['filters']['combine']['group'] = 1;
+  $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Search';
+  $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'search';
+  $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['combine']['group_info']['label'] = 'Combine fields filter';
+  $handler->display->display_options['filters']['combine']['group_info']['identifier'] = 'combine';
+  $handler->display->display_options['filters']['combine']['group_info']['remember'] = FALSE;
+  $handler->display->display_options['filters']['combine']['group_info']['group_items'] = array(
+    1 => array(),
+    2 => array(),
+    3 => array(),
+  );
+  $handler->display->display_options['filters']['combine']['fields'] = array(
+    'title' => 'title',
+    'body' => 'body',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'resources';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Resources';
+  $handler->display->display_options['menu']['weight'] = '2';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
@@ -142,10 +186,7 @@ function green_renters_workshops_views_default_views() {
     'default' => 'default',
     'page' => 'page',
   );
-
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block_1');
-  $export['workshop_listing'] = $view;
+  $export['resource_listing'] = $view;
 
   return $export;
 }
