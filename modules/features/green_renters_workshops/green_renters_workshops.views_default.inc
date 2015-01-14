@@ -81,6 +81,7 @@ function green_renters_workshops_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
