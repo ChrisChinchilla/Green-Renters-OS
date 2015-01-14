@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Green Renters Import and Export feature.
+ */
+
+include_once 'green_renters_import_and_export.features.inc';
