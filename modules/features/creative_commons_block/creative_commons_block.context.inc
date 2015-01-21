@@ -19,7 +19,9 @@ function creative_commons_block_context_default_contexts() {
   $context->conditions = array(
     'node' => array(
       'values' => array(
+        'article' => 'article',
         'idea' => 'idea',
+        'page' => 'page',
         'resource' => 'resource',
         'workshop' => 'workshop',
       ),
@@ -34,8 +36,8 @@ function creative_commons_block_context_default_contexts() {
         'ccblock-ccblock' => array(
           'module' => 'ccblock',
           'delta' => 'ccblock',
-          'region' => 'footer_secondcolumn',
-          'weight' => '-10',
+          'region' => 'sidebar_first',
+          'weight' => '10',
         ),
       ),
     ),

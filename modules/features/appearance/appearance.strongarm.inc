@@ -15,8 +15,8 @@ function appearance_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'color_greenrenters7_files';
   $strongarm->value = array(
-    0 => 'public://color/greenrenters7-c9c37232/logo.png',
-    1 => 'public://color/greenrenters7-c9c37232/colors.css',
+    0 => 'public://color/greenrenters7-0cede276/logo.png',
+    1 => 'public://color/greenrenters7-0cede276/colors.css',
   );
   $export['color_greenrenters7_files'] = $strongarm;
 
@@ -24,7 +24,7 @@ function appearance_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'color_greenrenters7_logo';
-  $strongarm->value = 'public://color/greenrenters7-c9c37232/logo.png';
+  $strongarm->value = 'public://color/greenrenters7-0cede276/logo.png';
   $export['color_greenrenters7_logo'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -49,7 +49,7 @@ function appearance_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'color_greenrenters7_stylesheets';
   $strongarm->value = array(
-    0 => 'public://color/greenrenters7-c9c37232/colors.css',
+    0 => 'public://color/greenrenters7-0cede276/colors.css',
   );
   $export['color_greenrenters7_stylesheets'] = $strongarm;
 
